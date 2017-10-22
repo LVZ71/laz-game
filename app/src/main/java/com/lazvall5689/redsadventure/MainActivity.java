@@ -1,11 +1,14 @@
 package com.lazvall5689.redsadventure;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.lazvall5689.redsadventure.web.GetHtml;
+import com.lazvall5689.redsadventure.web.OnHtmlRetrieved;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,8 +23,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mainContext, "HERE", Toast.LENGTH_LONG).show();
             }
         });
+
+        new GetHtml(new OnHtmlRetrieved() {
+            @Override
+            public void onHtmlRetrieved(String rawData) {
+                Log.d("hey", rawData);
+            }
+        }).execute("https://laz-game.herokuapp.com/");
     }
 }
