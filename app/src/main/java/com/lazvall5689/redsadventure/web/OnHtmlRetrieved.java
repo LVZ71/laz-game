@@ -1,4 +1,7 @@
 package com.lazvall5689.redsadventure.web;
+import com.lazvall5689.redsadventure.Scene;
+
+import java.util.ArrayList;
 
 /**
  * Created by oscartorres on 10/17/17.
@@ -6,5 +9,5 @@ package com.lazvall5689.redsadventure.web;
 
 public interface OnHtmlRetrieved
 {
-    void onHtmlRetrieved(String rawData);
+    void scenesRetrieved(ArrayList<Scene> list);
 }
