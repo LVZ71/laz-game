@@ -11,10 +11,6 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 
-/**
- * Created by oscartorres on 10/17/17.
- */
-
 public class GetHtml extends AsyncTask<String, Void, ArrayList<Scene>> {
     private OnHtmlRetrieved thisHtmlRetrieved;
 
@@ -29,7 +25,7 @@ public class GetHtml extends AsyncTask<String, Void, ArrayList<Scene>> {
 
     @Override
     protected ArrayList<Scene> doInBackground(String... urls) {
-        String html = "";
+        String html;
         try {
             html = Jsoup.connect(urls[0]).get().html();
         } catch (Exception e) {
