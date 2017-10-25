@@ -1,9 +1,5 @@
 package com.lazvall5689.redsadventure;
 
-/**
- * Created by oscartorres on 10/21/17.
- */
-
 public class Scene {
 
     private String title;
