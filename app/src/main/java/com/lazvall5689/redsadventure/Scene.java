@@ -11,35 +11,14 @@ public class Scene {
         this.title = title;
         this.content = content;
         // trim excessive spaces and split string on whitespace
-        String[] arr = routes.trim().split("\\s+");
-        this.routes = strToInt(arr);
+        if(!routes.trim().isEmpty()) {
+            String[] arr = routes.trim().split("\\s+");
+            this.routes = StringUtil.strToInt(arr);
+        }else{
+            // empty
+            this.routes = new int[0];
+        }
         this.item = item;
-    }
-
-    private int[] strToInt(String[] arr) {
-        int[] ruts = new int[arr.length];
-        for (int x = 0; x < arr.length; x++) {
-            ruts[x] = parseInt(arr[x]);
-        }
-        return ruts;
-    }
-
-    private int parseInt(String str) {
-        try {
-            return Integer.parseInt(str);
-        } catch (Exception e) {
-            // couldn't parse int, return -1 to notify
-            return -1;
-        }
-    }
-
-    private String intArrToStr(int[] ints) {
-        StringBuilder builder = new StringBuilder();
-        for (int a : ints) {
-            builder.append(a);
-            builder.append(" ");
-        }
-        return builder.toString();
     }
 
     public String getTitle() {
@@ -58,9 +37,13 @@ public class Scene {
         return item;
     }
 
+    public int numRoutes(){
+        return routes.length;
+    }
+
     @Override
     public String toString() {
         return "Title: " + title + "\nContent: " + content +
-                "\nRoutes: " + intArrToStr(routes) + "\nItem: " + item;
+                "\nRoutes: " + StringUtil.intArrToStr(routes) + "\nItem: " + item;
     }
 }
