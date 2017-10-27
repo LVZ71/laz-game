@@ -39,7 +39,7 @@ public class GetHtml extends AsyncTask<String, Void, ArrayList<Scene>> {
         Elements rows = table.select("tbody>tr");
 
         ArrayList<Scene> scenes = new ArrayList<>();
-        for (int i = 1; i < rows.size(); i++) { // start at 1 to skip title
+        for (int i = 0; i < rows.size(); i++) {
             Element row = rows.get(i);
             Elements children = row.children();
             String title = children.select(".title").eq(0).html();
