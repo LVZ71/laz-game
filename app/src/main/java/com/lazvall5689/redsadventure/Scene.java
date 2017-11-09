@@ -5,9 +5,9 @@ public class Scene {
     private String title;
     private String content;
     private int[] routes;
-    private String item;
+    private String path;
 
-    public Scene(String title, String content, String routes, String item) {
+    public Scene(String title, String content, String routes, String path) {
         this.title = title;
         this.content = content;
         // trim excessive spaces and split string on whitespace
@@ -18,7 +18,7 @@ public class Scene {
             // empty
             this.routes = new int[0];
         }
-        this.item = item;
+        this.path = path;
     }
 
     public String getTitle() {
@@ -33,8 +33,8 @@ public class Scene {
         return routes;
     }
 
-    public String getItem() {
-        return item;
+    public String getPath() {
+        return path;
     }
 
     public int numRoutes(){
@@ -44,6 +44,6 @@ public class Scene {
     @Override
     public String toString() {
         return "Title: " + title + "\nContent: " + content +
-                "\nRoutes: " + StringUtil.intArrToStr(routes) + "\nItem: " + item;
+                "\nRoutes: " + StringUtil.intArrToStr(routes) + "\nPath: " + path;
     }
 }
