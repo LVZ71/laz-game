@@ -33,7 +33,6 @@ public class GetHtml extends AsyncTask<String, Void, ArrayList<Scene>> {
             return new ArrayList<>();
         }
 
-
         Document document = Jsoup.parse(html);
         Element table = document.select("table").get(0);
         Elements rows = table.select("tbody>tr");
@@ -45,8 +44,8 @@ public class GetHtml extends AsyncTask<String, Void, ArrayList<Scene>> {
             String title = children.select(".title").eq(0).html();
             String content = children.select(".content").eq(0).html();
             String routes = children.select(".routes").eq(0).html();
-            String item = children.select(".path").eq(0).html();
-            scenes.add(new Scene(title, content, routes, item));
+            String path = children.select(".path").eq(0).html();
+            scenes.add(new Scene(title, content, routes, path));
         }
 
         return scenes;
